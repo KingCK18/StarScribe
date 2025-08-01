@@ -1,11 +1,16 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import HomePage from './components/HomePage'
 import Header from './components/Header'
 import FileDisplay from './components/FileDisplay'
+import Information from './components/Information'
+import Transcribing from './components/Transcribing'
 
 function App() {
   const [file, setFile] = useState(null)
   const [audioStream, setAudioStream] = useState(null)
+  const [output, setOutput] = useState(true)
+  const [loading, setLoading] = useState(true)
+  // const [downloading, setDownloading] = useState(false)
 
   const isAudioAvailable = file || audioStream
 
@@ -13,18 +18,27 @@ function App() {
     setFile(null)
     setAudioStream(null)
   }
+ 
+  useEffect(() => {
+    console.log(audioStream)
+  }, [audioStream])
 
   return (
     <div className='flex flex-col max-w-[1000px] mx-auto w-full'>
       <section className='min-h-screen flex flex-col'>
         <Header />
-        {isAudioAvailable ? (
-          <FileDisplay handleAudioReset={ handleAudioReset } file= { file } audioStream = { audioStream } />
+        { output ? (
+          <Information /> 
+        ) : loading ? (
+          <Transcribing/>
+        ) : isAudioAvailable ? (
+          <FileDisplay handleAudioReset={ handleAudioReset } 
+          file= { file } audioStream = { audioStream } />
         ) : (
-        <HomePage setFile={ setFile } audioStream={ setAudioStream } />
+          <HomePage setFile={ setFile } audioStream={ setAudioStream } />
         )}
+        
       </section>
-      <h1 className='text-blue-700 justify-center'> Hello World! I am Christian Kirby</h1>
       <footer></footer>
     </div>
   )
