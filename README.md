@@ -1,13 +1,51 @@
-# React + Vite
+# 🌟 StarScribe
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**StarScribe** is a sleek and intuitive web app that allows users to **record or upload audio**, get it **transcribed to text**, and optionally **translate the transcription** into multiple languages. Designed with accessibility and simplicity in mind, StarScribe is the perfect tool for students, journalists, creators, and global communicators.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 🎤 Record live audio directly in the browser
+- 📁 Upload audio files (e.g., .mp3, .wav)
+- ✍️ Transcribe audio using advanced speech recognition
+- 🌍 Translate transcriptions into many supported languages
+- 📋 Copy, edit, and download your transcripts
+- 📱 Clean and responsive user interface
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# StarScribe
+---
+
+## 🖼️ UI Preview
+
+![StarScribe UI](<img width="1512" height="823" alt="Screenshot 2025-08-04 at 6 31 51 PM" src="https://github.com/user-attachments/assets/63d1c07f-d684-4794-a481-0cabd9d525eb" />
+)  
+<sub>*Replace this with your actual UI image path*</sub>
+
+---
+
+## 🛠️ Built With
+
+- **React** (Frontend)
+- **JavaScript / TypeScript**
+- **Web Workers** for background processing
+- **Whisper / Whisper.cpp** (or OpenAI API, if applicable)
+- **Tailwind CSS** (update based on your project)
+- **Vite** (depending on bundler used)
+
+---
+
+## 📦 Getting Started
+
+### Prerequisites
+
+- Node.js >= 16
+- npm or yarn
+
+### Installation
+
+```bash
+git clone https://github.com/yourusername/StarScribe.git
+cd StarScribe
+npm install
+npm run dev
+
