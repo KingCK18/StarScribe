@@ -19,7 +19,6 @@
 
 ![StarScribe UI](src/assets/C14CFF72-2293-48BC-894F-5BB243D2161A.jpeg)
 
-<sub>*Replace this with your actual UI image path*</sub>
 
 ---
 
