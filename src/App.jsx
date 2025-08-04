@@ -10,9 +10,9 @@ function App() {
   const [file, setFile] = useState(null)
   const [audioStream, setAudioStream] = useState(null)
   const [output, setOutput] = useState(null)
-  const [loading, setLoading] = useState(false)
-  const[finished, setFinished] = useState(false)
   const [downloading, setDownloading] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [finished, setFinished] = useState(false)
 
   const isAudioAvailable = file || audioStream
 
@@ -23,14 +23,14 @@ function App() {
 
   const worker = useRef(null)
 
-  useEffect(() =>{
+  useEffect(() => {
     if (!worker.current) {
       worker.current = new Worker(new URL('./utils/whisper.worker.js', import.meta.url), {
         type: 'module'
       })
     }
 
-    const onMessageRecieved = async (e) => {
+    const onMessageReceived = async (e) => {
       switch (e.data.type) {
         case 'DOWNLOADING':
           setDownloading(true)
@@ -42,22 +42,23 @@ function App() {
           break;
         case 'RESULT':
           setOutput(e.data.results)
+          console.log(e.data.results)
           break;
         case 'INFERENCE_DONE':
           setFinished(true)
-          console.log('DONE')
+          console.log("DONE")
           break;
       }
     }
 
-    worker.current.addEventListener('message', onMessageRecieved)
+    worker.current.addEventListener('message', onMessageReceived)
 
-    return () => worker.current.removeEventListener('message', onMessageRecieved)
+    return () => worker.current.removeEventListener('message', onMessageReceived)
   })
 
-  async function readAudioFrom() {
+  async function readAudioFrom(file) {
     const sampling_rate = 16000
-    const audioCTX = new AudioContext({sampleRate: sampling_rate})
+    const audioCTX = new AudioContext({ sampleRate: sampling_rate })
     const response = await file.arrayBuffer()
     const decoded = await audioCTX.decodeAudioData(response)
     const audio = decoded.getChannelData(0)
@@ -77,23 +78,19 @@ function App() {
     })
   }
 
-
   return (
     <div className='flex flex-col max-w-[1000px] mx-auto w-full'>
       <section className='min-h-screen flex flex-col'>
         <Header />
-        { output ? (
-          <Information output={output} finished={finished}/> 
+        {output ? (
+          <Information output={output} finished={finished}/>
         ) : loading ? (
-          <Transcribing/>
+          <Transcribing />
         ) : isAudioAvailable ? (
-          <FileDisplay handleFormSubmission = { handleFormSubmission } 
-          handleAudioReset = { handleAudioReset } 
-          file = { file } audioStream = { setAudioStream } />
+          <FileDisplay handleFormSubmission={handleFormSubmission} handleAudioReset={handleAudioReset} file={file} audioStream={audioStream} />
         ) : (
-          <HomePage setFile={ setFile } setAudioStream={ setAudioStream } />
+          <HomePage setFile={setFile} setAudioStream={setAudioStream} />
         )}
-        
       </section>
       <footer></footer>
     </div>

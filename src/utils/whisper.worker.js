@@ -1,6 +1,8 @@
 import { pipeline } from '@xenova/transformers'
 import { MessageTypes } from './presets'
 
+console.log('pipeline:', pipeline)
+
 class MyTranscriptionPipeline {
     static task = 'automatic-speech-recognition'
     static model = 'openai/whisper-tiny.en'
