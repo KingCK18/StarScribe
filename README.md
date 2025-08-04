@@ -17,8 +17,8 @@
 
 ## 🖼️ UI Preview
 
-![StarScribe UI](<img width="1512" height="823" alt="Screenshot 2025-08-04 at 6 31 51 PM" src="https://github.com/user-attachments/assets/63d1c07f-d684-4794-a481-0cabd9d525eb" />
-)  
+![StarScribe UI](./assets/StarScribe.jpeg)
+
 <sub>*Replace this with your actual UI image path*</sub>
 
 ---
