@@ -85,7 +85,8 @@ export default function HomePage(props) {
               {duration && (
                 <p className='text-sm '>{duration}s</p>
               )}
-              <i className={"fa-solid duration-200 fa-microphone " + (recordingStatus === 'recording' ? ' text-rose-300' : "")}></i>
+              <i className={"fa-solid duration-200 fa-microphone " + 
+              (recordingStatus === 'recording' ? ' text-rose-300' : "")}></i>
             </div>
         </button>
         <p className='text-base'>Or <label className='text-blue cursor-pointer
