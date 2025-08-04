@@ -27,9 +27,9 @@
 - **React** (Frontend)
 - **JavaScript / TypeScript**
 - **Web Workers** for background processing
-- **Whisper / Whisper.cpp** (or OpenAI API, if applicable)
-- **Tailwind CSS** (update based on your project)
-- **Vite** (depending on bundler used)
+- **Whisper / Whisper.cpp**
+- **Tailwind CSS** 
+- **Vite**
 
 ---
 
